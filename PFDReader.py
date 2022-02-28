@@ -27,7 +27,8 @@ def decrypt_pdf(input_path, output_path, password):
 def list_files(input_path):
     onlyfiles = [f for f in listdir(input_path) if isfile(join(input_path, f))]
     print ("List of files identified are...")
-    for p in onlyfiles: print p
+    for p in onlyfiles:
+        print (p)
     return onlyfiles
 
 # This scripts expected the encrypted files in the encrypted directory and pushes out the files to the
@@ -49,8 +50,8 @@ if __name__ == '__main__':
         page = read_pdf.getPage(0)
         page_content = page.extractText()
         if "Gold" in page_content:
-            print "Gold Exists in..." + p
-            print page_content.split("Gold", 1)[1]
+            print ("Gold Exists in..." + p);
+            print (page_content.split("Gold", 1)[1]);
             # Move this to  a different folder
             copyfile('decrypted/' + p, 'GOLDBEES/' + p)
         else:
